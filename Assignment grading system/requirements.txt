@@ -1,0 +1,16 @@
+streamlit
+plotly
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+python-docx
+PyPDF2
+openpyxl
+nltk
+joblib
+python-dotenv
+reportlab
+bcrypt
+google-generativeai
