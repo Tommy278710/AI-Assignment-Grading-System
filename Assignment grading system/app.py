@@ -1,9 +1,3 @@
-# ==========================================================
-# AI ACADEMIC EVALUATION SYSTEM
-# APP.PY V3
-# SECTION 1
-# IMPORTS + PAGE CONFIG + CSS + SESSION STATE
-# ==========================================================
 
 import streamlit as st
 import pandas as pd
@@ -43,21 +37,6 @@ from backend import (
 )
 
 
-# ==========================================================
-# PAGE CONFIG
-# ==========================================================
-
-st.set_page_config(
-    page_title="AI Assignment Grading  System",
-    page_icon="🎓",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-
-# ==========================================================
-# CUSTOM CSS
-# ==========================================================
 
 st.markdown("""
 <style>
@@ -102,9 +81,6 @@ section[data-testid="stSidebar"] {
 """, unsafe_allow_html=True)
 
 
-# ==========================================================
-# SESSION STATE
-# ==========================================================
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
@@ -119,9 +95,6 @@ if "role" not in st.session_state:
     st.session_state.role = None
 
 
-# ==========================================================
-# KPI CARDS HELPER
-# ==========================================================
 
 def metric_cards(
     value1,
@@ -142,17 +115,6 @@ def metric_cards(
     col4.metric(label4, value4)
 
 
-print("✅ App Section 1 Loaded")
-
-# ==========================================================
-# SECTION 2
-# LOGIN PAGE + SIDEBAR + NAVIGATION
-# ==========================================================
-
-
-# ==========================================================
-# LOGIN PAGE
-# ==========================================================
 
 def login_page():
 
@@ -207,12 +169,6 @@ def login_page():
                 )
 
 
-# ==========================================================
-# SIDEBAR
-# ==========================================================
-
-def sidebar():
-
     with st.sidebar:
 
         st.title(
@@ -243,10 +199,6 @@ def sidebar():
             st.rerun()
 
 
-# ==========================================================
-# NAVIGATION ROUTER
-# ==========================================================
-
 def navigation():
 
     sidebar()
@@ -268,11 +220,7 @@ def navigation():
 
 print("✅ App Section 2 Loaded")
 
-# ==========================================================
-# SECTION 3
-# ADMIN DASHBOARD
-# ==========================================================
-
+# 
 def admin_dashboard():
 
     st.title("📊 Admin Dashboard")
@@ -301,11 +249,6 @@ def admin_dashboard():
         ]
     )
 
-    # ======================================================
-    # CREATE COURSE
-    # ======================================================
-
-    with tab1:
 
         st.subheader(
             "Create New Course"
@@ -358,10 +301,8 @@ def admin_dashboard():
             except Exception as e:
 
                 st.error(str(e))
-
-    # ======================================================
     # REGISTER LECTURER
-    # ======================================================
+    
 
     with tab2:
 
@@ -402,10 +343,6 @@ def admin_dashboard():
                 st.error(
                     "Registration Failed"
                 )
-
-    # ======================================================
-    # REGISTER STUDENT
-    # ======================================================
 
     with tab3:
 
@@ -462,10 +399,6 @@ def admin_dashboard():
                     "Registration Failed"
                 )
 
-    # ======================================================
-    # VIEW COURSES
-    # ======================================================
-
     with tab4:
 
         st.subheader(
@@ -487,13 +420,6 @@ def admin_dashboard():
                 str(e)
             )
 
-
-print("✅ App Section 3 Loaded")
-
-# ==========================================================
-# SECTION 4
-# LECTURER DASHBOARD
-# ==========================================================
 
 def lecturer_dashboard():
 
@@ -524,9 +450,7 @@ def lecturer_dashboard():
     )
 
     # ======================================================
-    # VIEW ASSIGNMENTS
-    # ======================================================
-
+   
     with tab1:
 
         st.subheader(
@@ -557,11 +481,6 @@ def lecturer_dashboard():
 
                 st.error(str(e))
 
-    # ======================================================
-    # CREATE ASSIGNMENT
-    # ======================================================
-
-    with tab2:
 
         st.subheader(
             "Create Assignment"
@@ -619,10 +538,7 @@ def lecturer_dashboard():
 
                 st.error(str(e))
 
-    # ======================================================
-    # SUBMISSIONS
-    # ======================================================
-
+   
     with tab3:
 
         st.subheader(
@@ -778,10 +694,6 @@ def lecturer_dashboard():
 
                 st.error(str(e))
 
-    # ======================================================
-    # ANALYTICS
-    # ======================================================
-
     with tab4:
 
         st.subheader(
@@ -860,16 +772,6 @@ def lecturer_dashboard():
 
                 st.error(str(e))
 
-
-print("✅ App Section 4 Loaded")
-
-# ==========================================================
-# SECTION 5
-# STUDENT DASHBOARD + MAIN ENTRY POINT
-# ==========================================================
-
-def student_dashboard():
-
     st.title("🎓 Student Dashboard")
 
     stats = get_student_stats(
@@ -896,11 +798,6 @@ def student_dashboard():
             "💬 Comments",
             "📈 Performance"
         ]
-    )
-
-    # ======================================================
-    # SUBMIT ASSIGNMENT
-    # ======================================================
 
     with tab1:
 
@@ -970,12 +867,6 @@ def student_dashboard():
                     "Assignment Submitted Successfully"
                 )
 
-    # ======================================================
-    # MY SUBMISSIONS
-    # ======================================================
-
-    with tab2:
-
         st.subheader(
             "My Submission History"
         )
@@ -995,9 +886,6 @@ def student_dashboard():
 
             st.error(str(e))
 
-    # ======================================================
-    # COMMENTS
-    # ======================================================
 
     with tab3:
 
@@ -1059,8 +947,6 @@ def student_dashboard():
                 st.error(str(e))
 
     # ======================================================
-    # PERFORMANCE
-    # ======================================================
 
     with tab4:
 
@@ -1107,10 +993,6 @@ def student_dashboard():
             st.error(str(e))
 
 
-# ==========================================================
-# MAIN APPLICATION
-# ==========================================================
-
 if not st.session_state.logged_in:
 
     login_page()
@@ -1118,7 +1000,3 @@ if not st.session_state.logged_in:
 else:
 
     navigation()
-
-
-print("✅ App Section 5 Loaded")
-print("✅ app.py v3 Ready")
