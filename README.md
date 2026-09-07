@@ -1,4 +1,4 @@
-# 🎓 AI Assignment Grading System
+#  AI Assignment Grading System
 
 An AI-powered academic assignment grading system designed to assist lecturers in evaluating student submissions using customizable marking guides, rubrics, and intelligent automated assessment workflows.
 
@@ -6,7 +6,7 @@ The system aims to reduce the time and effort required for manual grading while 
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 Manual assignment grading can be time-consuming, especially when lecturers need to evaluate a large number of student submissions using detailed marking schemes.
 
@@ -20,9 +20,9 @@ The system analyzes submitted work against the specified assessment criteria and
 
 ---
 
-## ✨ Key Features
+##  Key Features
 
-### 👨‍🏫 Lecturer Features
+###  Lecturer Features
 
 - Create and manage courses
 - View assigned courses
@@ -35,7 +35,7 @@ The system analyzes submitted work against the specified assessment criteria and
 - Review AI-generated grading results
 - Track student performance
 
-### 👨‍🎓 Student Features
+###  Student Features
 
 - Create a student account
 - Access assigned courses
@@ -44,7 +44,7 @@ The system analyzes submitted work against the specified assessment criteria and
 - Upload assignment documents
 - View grading results where permitted
 
-### 👨‍💼 Admin Features
+###  Admin Features
 
 - Manage system users
 - Add and manage courses
@@ -54,7 +54,7 @@ The system analyzes submitted work against the specified assessment criteria and
 
 ---
 
-## 🤖 AI-Powered Assessment
+## AI-Powered Assessment
 
 The system integrates Artificial Intelligence to assist with the assignment evaluation process.
 
