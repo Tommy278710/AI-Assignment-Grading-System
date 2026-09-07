@@ -1,9 +1,3 @@
-# ==========================================================
-# AI ACADEMIC EVALUATION SYSTEM
-# BACKEND.PY V3
-# SECTION 1
-# IMPORTS + GEMINI + DATABASE + TABLES
-# ==========================================================
 
 import os
 import json
@@ -20,11 +14,7 @@ from PyPDF2 import PdfReader
 from docx import Document
 
 
-# ==========================================================
-# ENVIRONMENT VARIABLES
-# ==========================================================
-
-load_dotenv()
+ad_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -37,9 +27,6 @@ else:
     model = None
 
 
-# ==========================================================
-# DATABASE CONNECTION
-# ==========================================================
 
 conn = sqlite3.connect(
     "lms.db",
@@ -49,11 +36,7 @@ conn = sqlite3.connect(
 cursor = conn.cursor()
 
 
-# ==========================================================
-# USERS TABLE
-# ==========================================================
-
-cursor.execute("""
+.execute("""
 CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE,
@@ -67,9 +50,7 @@ CREATE TABLE IF NOT EXISTS users(
 """)
 
 
-# ==========================================================
-# COURSES TABLE
-# ==========================================================
+
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS courses(
@@ -84,9 +65,6 @@ CREATE TABLE IF NOT EXISTS courses(
 """)
 
 
-# ==========================================================
-# ENROLLMENTS TABLE
-# ==========================================================
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS enrollments(
@@ -97,11 +75,7 @@ CREATE TABLE IF NOT EXISTS enrollments(
 """)
 
 
-# ==========================================================
-# ASSIGNMENTS TABLE
-# ==========================================================
-
-cursor.execute("""
+sor.execute("""
 CREATE TABLE IF NOT EXISTS assignments(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     course_id INTEGER,
@@ -117,9 +91,6 @@ CREATE TABLE IF NOT EXISTS assignments(
 """)
 
 
-# ==========================================================
-# SUBMISSIONS TABLE
-# ==========================================================
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS submissions(
@@ -137,9 +108,6 @@ CREATE TABLE IF NOT EXISTS submissions(
 """)
 
 
-# ==========================================================
-# COMMENTS TABLE
-# ==========================================================
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS comments(
@@ -153,9 +121,7 @@ CREATE TABLE IF NOT EXISTS comments(
 """)
 
 
-# ==========================================================
-# ANALYTICS TABLE
-# ==========================================================
+
 
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS analytics_logs(
@@ -169,17 +135,7 @@ CREATE TABLE IF NOT EXISTS analytics_logs(
 
 conn.commit()
 
-print("✅ Backend Section 1 Loaded")
 
-# ==========================================================
-# SECTION 2
-# AUTHENTICATION + USERS + COURSES + ENROLLMENTS
-# ==========================================================
-
-
-# ==========================================================
-# PASSWORD HASHING
-# ==========================================================
 
 def hash_password(password):
     return bcrypt.hashpw(
